@@ -34,7 +34,7 @@ export default function TopAppBar() {
         
         <div className="flex items-center gap-4">
           <a 
-            href="https://gestionzen.ctsoft.com.ar" 
+            href="https://gestionzen.ctsoft.com.ar/cliente/login" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-dark px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:brightness-110 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
