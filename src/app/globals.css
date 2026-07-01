@@ -10,6 +10,7 @@
   --color-surface-dim: #131314;
   --color-surface-bright: #39393a;
   --color-surface-container: #1f1f20;
+  --color-surface-container-low: #1b1b1c;
   --color-surface-high: #2a2a2b;
   
   --color-on-surface: #e5e2e3;
@@ -17,6 +18,19 @@
   
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 :root {
@@ -29,4 +43,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+.container-max {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }

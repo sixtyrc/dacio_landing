@@ -1,25 +1,21 @@
 'use client';
-import { motion } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ContactSection() {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="contacto" className="py-24 bg-surface-container-low">
-      <div className="container-max mx-auto px-4">
+      <div className="container-max mx-auto px-4" ref={ref}>
         <div className="max-w-5xl mx-auto">
-          <div className="mb-16 text-center">
+          <div className={`mb-16 text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <h2 className="text-sm font-mono text-tertiary uppercase tracking-widest mb-2">Contacto</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white">Hablemos de su Negocio</h3>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-surface p-8 rounded-lg border border-white/5"
-            >
+            <div className={`bg-surface p-8 rounded-lg border border-white/5 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}>
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-xs font-mono text-secondary mb-2 uppercase">Nombre Completo</label>
@@ -41,15 +37,9 @@ export default function ContactSection() {
                   Enviar Mensaje
                 </button>
               </form>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col gap-8"
-            >
+            <div className={`flex flex-col gap-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'}`}>
               <div className="bg-surface p-8 rounded-lg border border-white/5 flex-grow">
                 <h4 className="text-xl font-bold text-white mb-6">Información de Contacto</h4>
                 
@@ -87,11 +77,10 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
               <div className="h-64 bg-surface rounded-lg border border-white/5 relative overflow-hidden flex items-center justify-center grayscale opacity-80">
                 <span className="font-mono text-sm text-secondary">Mapa Interactivo (Integración Google Maps)</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

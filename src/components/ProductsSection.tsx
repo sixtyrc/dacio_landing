@@ -1,6 +1,6 @@
 'use client';
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const categories = [
   { id: 1, name: "Especias y Condimentos", desc: "Selección premium para realzar el sabor de sus productos.", color: "from-amber-900/40 to-surface" },
@@ -10,10 +10,12 @@ const categories = [
 ];
 
 export default function ProductsSection() {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="productos" className="py-24 bg-surface">
-      <div className="container-max mx-auto px-4">
-        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="container-max mx-auto px-4" ref={ref}>
+        <div className={`mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div>
             <h2 className="text-sm font-mono text-tertiary uppercase tracking-widest mb-2">Catálogo</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white">Nuestras Categorías</h3>
@@ -25,13 +27,10 @@ export default function ProductsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, i) => (
-            <motion.div 
+            <div 
               key={cat.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group cursor-pointer relative overflow-hidden rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 transition-all hover:shadow-[0_12px_32px_rgba(0,0,0,0.5)] flex flex-col h-full"
+              className={`group cursor-pointer relative overflow-hidden rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_12px_32px_rgba(0,0,0,0.5)] flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              style={{ transitionDelay: `${200 + i * 100}ms` }}
             >
               <div className={`h-48 w-full bg-gradient-to-b ${cat.color} opacity-80 group-hover:opacity-100 transition-opacity`} />
               
@@ -43,7 +42,7 @@ export default function ProductsSection() {
                   Consultar <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
