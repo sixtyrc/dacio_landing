@@ -13,12 +13,12 @@ export default function ProductsSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="productos" className="py-24 bg-surface">
+    <section id="productos" className="py-16 md:py-24 bg-surface overflow-hidden">
       <div className="container-max mx-auto px-4" ref={ref}>
-        <div className={`mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className={`mb-10 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div>
             <h2 className="text-sm font-mono text-tertiary uppercase tracking-widest mb-2">Catálogo</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white">Nuestras Categorías</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Nuestras Categorías</h3>
           </div>
           <p className="text-secondary max-w-md">
             Soluciones integrales de máxima pureza y rendimiento. Todo lo que su industria necesita en un solo proveedor.
