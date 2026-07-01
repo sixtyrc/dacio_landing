@@ -3,10 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const categories = [
-  { id: 1, name: "Especias y Condimentos", desc: "Selección premium para realzar el sabor de sus productos.", color: "from-amber-900/40 to-surface" },
-  { id: 2, name: "Maquinaria Industrial", desc: "Equipos de alto rendimiento para procesamiento cárnico.", color: "from-zinc-800/60 to-surface" },
-  { id: 3, name: "Tripas e Insumos", desc: "Materiales certificados para elaboración de chacinados.", color: "from-red-900/30 to-surface" },
-  { id: 4, name: "Herramientas de Corte", desc: "Precisión y durabilidad para el desposte profesional.", color: "from-slate-800/50 to-surface" },
+  { id: 1, name: "Especias y Condimentos", desc: "Selección premium para realzar el sabor de sus productos.", img: "/cat_especias.png" },
+  { id: 2, name: "Maquinaria Industrial", desc: "Equipos de alto rendimiento para procesamiento cárnico.", img: "/cat_maquinaria.png" },
+  { id: 3, name: "Tripas e Insumos", desc: "Materiales certificados para elaboración de chacinados.", img: "/cat_tripas.png" },
+  { id: 4, name: "Herramientas de Corte", desc: "Precisión y durabilidad para el desposte profesional.", img: "/cat_herramientas.png" },
 ];
 
 export default function ProductsSection() {
@@ -32,9 +32,15 @@ export default function ProductsSection() {
               className={`group cursor-pointer relative overflow-hidden rounded-lg bg-surface-container border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_12px_32px_rgba(0,0,0,0.5)] flex flex-col h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${200 + i * 100}ms` }}
             >
-              <div className={`h-48 w-full bg-gradient-to-b ${cat.color} opacity-80 group-hover:opacity-100 transition-opacity`} />
+              <div className="overflow-hidden h-48 w-full relative">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${cat.img})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent opacity-80" />
+              </div>
               
-              <div className="p-6 flex-grow flex flex-col">
+              <div className="p-6 flex-grow flex flex-col relative z-10 -mt-8">
                 <h4 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">{cat.name}</h4>
                 <p className="text-sm text-secondary mb-6 flex-grow">{cat.desc}</p>
                 

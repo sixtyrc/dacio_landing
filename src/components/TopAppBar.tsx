@@ -19,9 +19,14 @@ export default function TopAppBar() {
         </nav>
         
         <div className="flex items-center gap-4">
-          <Link href="/clientes" className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-dark px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:brightness-110 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary">
+          <a 
+            href="https://gestionzen.ctsoft.com.ar" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-dark px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:brightness-110 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          >
             Portal Clientes
-          </Link>
+          </a>
           <button className="md:hidden p-2 text-on-surface">
             <Menu className="w-6 h-6" />
           </button>
