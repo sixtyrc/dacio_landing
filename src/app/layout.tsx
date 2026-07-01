@@ -13,9 +13,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DACIO | Insumos para Carnicerías",
-  description: "Soluciones integrales y maquinaria de alta performance para carnicerías y elaboración de chacinados.",
+  title: "DACIO | Insumos para Carnicerías y Chacinados",
+  description: "Soluciones integrales y maquinaria de alta performance para carnicerías y elaboración de chacinados. Resistencia, Chaco.",
+  icons: {
+    icon: "/Logo_original_dacio.jpeg",
+    apple: "/Logo_original_dacio.jpeg",
+  },
 };
+
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -28,7 +34,10 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

@@ -4,10 +4,12 @@ import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section id="inicio" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-surface-dim to-surface z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,0,0,0.15),transparent_50%)]" />
-      </div>
+    <section id="inicio" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-dim">
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/hero-bg.png)' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-surface-dim/80 via-surface-dim/70 to-surface z-0" />
 
       <div className="container-max mx-auto px-4 relative z-10 flex flex-col items-center text-center mt-12 animate-fade-in-up">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl">
