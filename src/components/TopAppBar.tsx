@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function TopAppBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-surface/90 shadow-[0_8px_30px_rgba(0,0,0,0.22)] backdrop-blur-md">
       <div className="container-max mx-auto px-4 h-[72px] md:h-20 flex items-center justify-between">
@@ -41,11 +47,41 @@ export default function TopAppBar() {
           >
             Portal Clientes
           </a>
-          <button className="md:hidden p-2 text-on-surface">
-            <Menu className="w-6 h-6" />
+          <button
+            type="button"
+            className="rounded-md p-2 text-on-surface md:hidden"
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
       </div>
+      {isMenuOpen && (
+        <nav
+          id="mobile-navigation"
+          className="border-t border-white/10 bg-surface/95 px-4 py-4 shadow-lg backdrop-blur-md md:hidden"
+          aria-label="Navegación móvil"
+        >
+          <div className="container-max mx-auto flex flex-col gap-1">
+            <Link href="#inicio" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-medium text-secondary hover:bg-white/5 hover:text-primary">Inicio</Link>
+            <Link href="#nosotros" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-medium text-secondary hover:bg-white/5 hover:text-primary">Nosotros</Link>
+            <Link href="#productos" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-medium text-secondary hover:bg-white/5 hover:text-primary">Productos</Link>
+            <Link href="#contacto" onClick={closeMenu} className="rounded-md px-3 py-3 text-sm font-medium text-secondary hover:bg-white/5 hover:text-primary">Contacto</Link>
+            <a
+              href="https://gestionzen.ctsoft.com.ar/cliente/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+              className="mt-3 inline-flex h-10 items-center justify-center rounded-md bg-gradient-to-br from-primary to-primary-dark px-4 text-sm font-medium text-white shadow hover:brightness-110"
+            >
+              Portal Clientes
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
