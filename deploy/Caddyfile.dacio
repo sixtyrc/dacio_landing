@@ -1,0 +1,14 @@
+# DACIO - Next.js administrado por NSSM
+dacio.ctsoft.com.ar {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:3010
+
+	log {
+		output file C:\caddy\logs\dacio.log {
+			roll_size 10MiB
+			roll_keep 10
+			roll_keep_for 720h
+		}
+		level INFO
+	}
+}
