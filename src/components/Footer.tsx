@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/Logo_original_dacio.jpeg" alt="DACIO Logo" width={32} height={32} className="rounded-sm object-cover grayscale opacity-80" />
+              <Image src="/logo-dacio.webp" alt="DACIO Logo" width={32} height={32} className="rounded-sm object-cover grayscale opacity-80" />
               <span className="text-xl font-bold tracking-tight text-white/90">DACIO</span>
             </div>
             <p className="text-sm text-secondary max-w-sm mb-6">
@@ -23,7 +24,7 @@ export default function Footer() {
               <li><Link href="#inicio" className="hover:text-primary transition-colors">Inicio</Link></li>
               <li><Link href="#nosotros" className="hover:text-primary transition-colors">Sobre Nosotros</Link></li>
               <li><Link href="#productos" className="hover:text-primary transition-colors">Catálogo de Productos</Link></li>
-              <li><Link href="/clientes" className="hover:text-primary transition-colors">Portal Clientes</Link></li>
+              <li><a href={site.portalClientesUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Portal Clientes</a></li>
             </ul>
           </div>
           

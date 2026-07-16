@@ -15,7 +15,7 @@ export default function TopAppBar() {
         <Link href="#inicio" className="group flex items-center gap-3" aria-label="DACIO — Ir al inicio">
           <span className="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-lg border border-tertiary/35 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:-translate-y-0.5 sm:size-16 md:size-[70px] md:rounded-xl">
             <Image
-              src="/Logo_original_dacio.jpeg"
+              src="/logo-dacio.webp"
               alt=""
               width={70}
               height={70}

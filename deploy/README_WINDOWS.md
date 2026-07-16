@@ -49,8 +49,23 @@ Crear `.env.production` en la raíz, sin subirlo a Git:
 ```dotenv
 RESEND_API_KEY=REEMPLAZAR
 CONTACT_FROM_EMAIL=Notificaciones DACIO <dacio@ctsoft.com.ar>
-CONTACT_TO_EMAIL=dacio@ctsoft.com.ar
+CONTACT_TO_EMAIL=info@dacio.com.ar
 ```
+
+> **FROM**: verificado 2026-07-16 — la API key actual solo está autorizada para
+> `ctsoft.com.ar` (con `dacio.com.ar` Resend devuelve
+> `403 This API key is not authorized to send emails from dacio.com.ar`).
+> Para usar `notificaciones@dacio.com.ar`: en Resend verificar el dominio
+> `dacio.com.ar` (DKIM/SPF en Cloudflare) y crear/editar la API key con acceso
+> a ese dominio.
+
+> **Importante — formulario de contacto:** si `RESEND_API_KEY` no está cargada
+> (o quedó el placeholder `REEMPLAZAR`), el endpoint `/api/contact` responde
+> `500 "El servicio de correo no está configurado"` y el formulario no envía.
+> El dominio del remitente (`dacio.com.ar`) debe estar **verificado en Resend**
+> (Dashboard → Domains → dacio.com.ar → registros DKIM/SPF en el DNS de
+> Cloudflare). Tras editar `.env.production` hay que recompilar/reiniciar:
+> `pnpm run build` y `C:\nssm\nssm.exe restart DACIO-Web`.
 
 Construir:
 

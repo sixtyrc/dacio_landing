@@ -1,9 +1,9 @@
 'use client';
 import { Phone } from "lucide-react";
+import { whatsappLink } from "@/lib/site";
 
 export default function WhatsAppButton() {
-  const message = "Hola, desde la web de DACIO quiero consultar: ";
-  const waLink = `https://wa.me/5493624083708?text=${encodeURIComponent(message)}`;
+  const waLink = whatsappLink("Hola. Me comunico desde dacio.com.ar y quisiera realizar una consulta.");
 
   return (
     <a

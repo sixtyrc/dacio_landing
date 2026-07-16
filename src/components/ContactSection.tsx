@@ -109,7 +109,9 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-mono text-xs text-secondary uppercase mb-1">Email</p>
-                      <p className="text-white">gonzalopablos1@gmail.com</p>
+                      <p className="text-white">
+                        <a href="mailto:info@dacio.com.ar" className="hover:text-primary transition-colors">info@dacio.com.ar</a>
+                      </p>
                     </div>
                   </div>
                 </div>

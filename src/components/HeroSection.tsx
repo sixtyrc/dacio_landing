@@ -1,13 +1,19 @@
 'use client';
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section id="inicio" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-dim">
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/hero-bg.png)' }}
+      <Image
+        src="/hero-bg.webp"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="z-0 object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-surface-dim/80 via-surface-dim/70 to-surface z-0" />
 
